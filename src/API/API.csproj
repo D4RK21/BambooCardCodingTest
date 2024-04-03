@@ -8,7 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Refit" Version="7.0.0" />
         <PackageReference Include="Refit.HttpClientFactory" Version="7.0.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
     </ItemGroup>
@@ -16,6 +15,9 @@
     <ItemGroup>
       <Content Include="..\..\.dockerignore">
         <Link>.dockerignore</Link>
+      </Content>
+      <Content Include="..\..\Dockerfile">
+        <Link>Dockerfile</Link>
       </Content>
     </ItemGroup>
 

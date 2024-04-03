@@ -6,7 +6,7 @@ namespace Infrastructure;
 public interface IApiProvider
 {
     [Get("/beststories.json")]
-    Task<List<int>> GetBestStoriesIds();
+    Task<IEnumerable<int>> GetBestStoriesIds();
 
     [Get("/item/{id}.json")]
     Task<StoryResponse> GetStoryById(int id);

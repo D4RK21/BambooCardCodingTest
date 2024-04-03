@@ -1,17 +1,12 @@
-using Infrastructure;
-using Refit;
+using API;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRefitClient<IApiProvider>()
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri(builder.Configuration["BaseApiUrl"]));
-
-// ToDo: Move in the separate file
-
-
+builder.Services.ConfigureServices(builder.Configuration);
 
 builder.Services.AddControllers();
+builder.Services.AddMemoryCache();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

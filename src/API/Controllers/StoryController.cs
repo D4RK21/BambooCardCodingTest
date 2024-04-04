@@ -14,8 +14,8 @@ public class StoryController : ControllerBase
         _storyService = storyService;
     }
 
-    [HttpGet("GetBestStoriesAsync")]
-    public async Task<IActionResult> GetBestStories(int count)
+    [HttpGet("GetBestStories")]
+    public async Task<IActionResult> GetBestStoriesAsync(int count)
     {
         if (count <= 0)
         {

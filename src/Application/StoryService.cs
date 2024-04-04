@@ -17,13 +17,14 @@ public class StoryService : IStoryService
     public async Task<IEnumerable<Story>> GetBestStoriesAsync(int count)
     {
         var bestStoriesIds =
-            await _cacheProxy.GetOrSet("bestStories", async () => await _storyProvider.GetBestStoriesIds());
+            await _cacheProxy.GetOrSet("bestStories", async () => await _storyProvider.GetBestStoriesIdsAsync());
         bestStoriesIds = bestStoriesIds.Take(count);
         
         var stories = new List<Story>();
         foreach (var id in bestStoriesIds)
         {
-            var story = await _cacheProxy.GetOrSet($"story-{id}", async () => await _storyProvider.GetStoryById(id));
+            var story = await _cacheProxy.GetOrSet($"story-{id}",
+                async () => await _storyProvider.GetStoryByIdAsync(id));
             stories.Add(new Story
             {
                 Title = story.Title,

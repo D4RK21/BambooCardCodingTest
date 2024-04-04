@@ -12,12 +12,12 @@ public class StoryProvider : IStoryProvider
         _apiProvider = apiProvider;
     }
 
-    public async Task<IEnumerable<int>> GetBestStoriesIds()
+    public async Task<IEnumerable<int>> GetBestStoriesIdsAsync()
     {
         return await _apiProvider.GetBestStoriesIds();
     }
 
-    public async Task<StoryResponse> GetStoryById(int id)
+    public async Task<StoryResponse> GetStoryByIdAsync(int id)
     {
         return await _apiProvider.GetStoryById(id);
     }

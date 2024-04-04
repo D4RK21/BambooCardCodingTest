@@ -4,6 +4,6 @@ namespace Application.Contracts;
 
 public interface IStoryProvider
 {
-    Task<IEnumerable<int>> GetBestStoriesIds();
-    Task<StoryResponse> GetStoryById(int id);
+    Task<IEnumerable<int>> GetBestStoriesIdsAsync();
+    Task<StoryResponse> GetStoryByIdAsync(int id);
 }
